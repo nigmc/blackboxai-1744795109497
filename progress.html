@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress | FitnessFurge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar {
+            transition: all 0.3s;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .active-tab {
+            border-bottom: 2px solid #2ecc71;
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="sidebar bg-white w-64 border-r border-gray-200 flex flex-col">
+            <div class="p-4 border-b border-gray-200">
+                <h1 class="text-2xl font-bold text-green-600">FITNESSFURGE</h1>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto">
+                <nav class="p-4 space-y-1">
+                    <a href="dashboard.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-home mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a href="meal-tracker.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-utensils mr-3"></i>
+                        Meal Tracker
+                    </a>
+                    <a href="workout-planner.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-dumbbell mr-3"></i>
+                        Workout Planner
+                    </a>
+                    <a href="community.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-users mr-3"></i>
+                        Community
+                    </a>
+                    <a href="progress.html" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Progress
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="p-4 border-t border-gray-200">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full">
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-700">Sarah Johnson</p>
+                        <a href="#" class="text-xs text-gray-500 hover:text-gray-700">View profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm">
+                <div class="px-6 py-4 flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-800">Progress Tracking</h2>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="p-2 text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="p-6">
+                <!-- Progress tabs -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-8">
+                            <button class="active-tab py-4 px-1 text-sm font-medium">
+                                Overview
+                            </button>
+                            <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium">
+                                Weight
+                            </button>
+                            <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium">
+                                Nutrition
+                            </button>
+                            <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium">
+                                Activity
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Progress overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Weight progress -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">Weight</h3>
+                            <select class="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>Last 7 days</option>
+                                <option selected>Last 30 days</option>
+                                <option>Last 90 days</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <div class="relative w-40 h-40">
+                                <svg class="w-full h-full" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#2ecc71" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="70.75" stroke-linecap="round"/>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-3xl font-bold text-gray-900">-3.2</span>
+                                    <span class="text-sm text-gray-500">kg this month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-sm text-gray-500">Current: <span class="font-medium text-gray-900">68.5 kg</span></p>
+                            <p class="text-sm text-gray-500">Goal: <span class="font-medium text-gray-900">65 kg</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Nutrition progress -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">Nutrition</h3>
+                            <select class="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>Last 7 days</option>
+                                <option selected>Last 30 days</option>
+                                <option>Last 90 days</option>
+                            </select>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Calories</span>
+                                    <span class="text-xs text-gray-500">85% of goal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Protein</span>
+                                    <span class="text-xs text-gray-500">72% of goal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 72%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Carbs</span>
+                                    <span class="text-xs text-gray-500">90% of goal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Fats</span>
+                                    <span class="text-xs text-gray-500">65% of goal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-red-600 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity progress -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">Activity</h3>
+                            <select class="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>Last 7 days</option>
+                                <option selected>Last 30 days</option>
+                                <option>Last 90 days</option>
+                            </select>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Steps</span>
+                                    <span class="text-xs text-gray-500">78% of goal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Average: 8,200 steps/day</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Workouts</span>
+                                    <span class="text-xs text-gray-500">5/7 days</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-cyan-600 h-2 rounded-full" style="width: 71%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Total: 22 workouts</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Calories Burned</span>
+                                    <span class="text-xs text-gray-500">12,450 kcal</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-orange-600 h-2 rounded-full" style="width: 62%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Average: 415 kcal/day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Weight chart -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Weight History</h3>
+                        <select class="text-sm border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option>Last 7 days</option>
+                            <option selected>Last 30 days</option>
+                            <option>Last 90 days</option>
+                            <option>All time</option>
+                        </select>
+                    </div>
+                    <div class="h-64">
+                        <svg width="100%" height="100%" viewBox="0 0 800 250" class="text-gray-200">
+                            <!-- X-axis -->
+                            <line x1="50" y1="200" x2="750" y2="200" stroke="currentColor" stroke-width="1" />
+                            
+                            <!-- Y-axis -->
+                            <line x1="50" y1="200" x2="50" y2="50" stroke="currentColor" stroke-width="1" />
+                            
+                            <!-- Grid lines -->
+                            <line x1="50" y1="170" x2="750" y2="170" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="140" x2="750" y2="140" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="110" x2="750" y2="110" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="80" x2="750" y2="80" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="50" x2="750" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            
+                            <!-- Y-axis labels -->
+                            <text x="30" y="50" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">70</text>
+                            <text x="30" y="80" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">68</text>
+                            <text x="30" y="110" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">66</text>
+                            <text x="30" y="140" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">64</text>
+                            <text x="30" y="170" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">62</text>
+                            <text x="30" y="200" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">60</text>
+                            
+                            <!-- Data points (mock data) -->
+                            <polyline points="100,170 150,160 200,155 250,150 300,145 350,140 400,135 450,130 500,125 550,120 600,115 650,110 700,105 750,100" 
+                                     fill="none" stroke="#2ecc71" stroke-width="3" stroke-linecap="round" />
+                            
+                            <!-- Goal line -->
+                            <line x1="50" y1="125" x2="750" y2="125" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4" />
+                            <text x="760" y="125" text-anchor="start" dominant-baseline="middle" class="text-xs fill-gray-500">Goal</text>
+                            
+                            <!-- X-axis labels -->
+                            <text x="100" y="220" text-anchor="middle" class="text-xs fill-gray-500">1</text>
+                            <text x="200" y="220" text-anchor="middle" class="text-xs fill-gray-500">5</text>
+                            <text x="300" y="220" text-anchor="middle" class="text-xs fill-gray-500">10</text>
+                            <text x="400" y="220" text-anchor="middle" class="text-xs fill-gray-500">15</text>
+                            <text x="500" y="220" text-anchor="middle" class="text-xs fill-gray-500">20</text>
+                            <text x="600" y="220" text-anchor="middle" class="text-xs fill-gray-500">25</text>
+                            <text x="700" y="220" text-anchor="middle" class="text-xs fill-gray-500">30</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Achievements</h3>
+                        <span class="text-sm text-gray-500">3 of 12 unlocked</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Achievement 1 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-trophy text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">First Steps</h4>
+                            <p class="text-xs text-gray-500">Complete 7 workouts</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-green-600">Unlocked</span>
+                        </div>
+                        
+                        <!-- Achievement 2 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-weight text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">5K Club</h4>
+                            <p class="text-xs text-gray-500">Lose 5 kg</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-green-600">Unlocked</span>
+                        </div>
+                        
+                        <!-- Achievement 3 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-fire text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">Calorie Burner</h4>
+                            <p class="text-xs text-gray-500">Burn 10,000 calories</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-green-600">Unlocked</span>
+                        </div>
+                        
+                        <!-- Achievement 4 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-utensils text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">Meal Master</h4>
+                            <p class="text-xs text-gray-500">Log 50 meals</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-gray-500">Locked</span>
+                        </div>
+                        
+                        <!-- Achievement 5 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-walking text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">Step Champion</h4>
+                            <p class="text-xs text-gray-500">100,000 steps</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-gray-500">Locked</span>
+                        </div>
+                        
+                        <!-- Achievement 6 -->
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-calendar-check text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900">Consistency</h4>
+                            <p class="text-xs text-gray-500">30 day streak</p>
+                            <span class="inline-block mt-1 text-xs font-medium text-gray-500">Locked</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('nav button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active-tab'));
+                tab.classList.add('active-tab');
+            });
+        });
+    </script>
+</body>
+</html>
