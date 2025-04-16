@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Previous head content remains the same -->
+    <!-- ... -->
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Header and other sections remain the same -->
+        <!-- ... -->
+
+        <!-- Updated Subscription Plans -->
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Monthly Plan -->
+            <div class="plan-card bg-white rounded-xl p-6 shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Monthly</h3>
+                <p class="text-gray-500 mb-4">Flexible monthly access</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold">$12</span>
+                    <span class="text-gray-500">/month</span>
+                </div>
+                <ul class="space-y-2 mb-6">
+                    <!-- Plan features remain the same -->
+                </ul>
+                <button class="select-plan w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+                    Select Plan
+                </button>
+                <p class="text-xs text-center mt-2 text-gray-500">
+                    or use <span class="font-medium">10,000 points</span>
+                </p>
+            </div>
+
+            <!-- Yearly Plan -->
+            <div class="plan-card recommended bg-white rounded-xl p-6 shadow-md">
+                <!-- Recommended badge and content remains same -->
+            </div>
+
+            <!-- Lifetime Plan -->
+            <div class="plan-card bg-white rounded-xl p-6 shadow-md">
+                <!-- Content remains same -->
+            </div>
+        </div>
+
+        <!-- Updated Points Redemption Section -->
+        <div class="mt-12 bg-white rounded-xl p-6 shadow-md max-w-2xl mx-auto">
+            <h2 class="text-xl font-semibold mb-4">Earn Points with Reviews</h2>
+            <div class="mb-4">
+                <p class="text-gray-600">Your current points: <span id="userPoints" class="font-bold">0</span></p>
+                <p class="text-sm text-gray-500">10,000 points = 1 month subscription</p>
+            </div>
+            
+            <!-- Review form remains same -->
+
+            <div class="mt-6">
+                <h3 class="font-medium mb-2">Redeem Points</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="border p-3 rounded-lg text-center">
+                        <p class="font-bold">10,000 points</p>
+                        <p class="text-sm text-gray-500">1 Month Subscription</p>
+                        <button class="redeem-points mt-2 text-xs bg-green-100 text-green-700 py-1 px-2 rounded" 
+                                data-points="10000">
+                            Redeem
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center">
+                        Earn 100-1,000 points per quality review
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PayPal Subscription Option -->
+        <div class="mt-8 bg-white rounded-xl p-6 shadow-md max-w-2xl mx-auto">
+            <h2 class="text-xl font-semibold mb-4">Pay with PayPal</h2>
+            <div class="flex items-center justify-center space-x-4">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" 
+                     alt="PayPal Logo" 
+                     class="h-8">
+                <a href="https://www.paypal.me/fitnessforge" 
+                   class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition inline-flex items-center">
+                    <i class="fab fa-paypal mr-2"></i>
+                    Subscribe via PayPal
+                </a>
+            </div>
+            <p class="text-sm text-gray-500 text-center mt-3">
+                Secure payment processed by PayPal
+            </p>
+        </div>
+    </div>
+
+    <script src="workout-counter.js"></script>
+    <script src="review-system.js"></script>
+    <script>
+        // Updated points calculation
+        function calculatePoints(reviewText, rating) {
+            const lengthPoints = Math.min(Math.floor(reviewText.length / 10), 500);
+            const ratingPoints = rating * 200;
+            return Math.min(lengthPoints + ratingPoints, 1000);
+        }
+
+        // Rest of the script remains same
+        // ...
+    </script>
+</body>
+</html>
