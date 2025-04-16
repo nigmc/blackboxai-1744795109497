@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FitnessFurge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar {
+            transition: all 0.3s;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="sidebar bg-white w-64 border-r border-gray-200 flex flex-col">
+            <div class="p-4 border-b border-gray-200">
+                <h1 class="text-2xl font-bold text-green-600">FITNESSFURGE</h1>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto">
+                <nav class="p-4 space-y-1">
+                    <a href="dashboard.html" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg">
+                        <i class="fas fa-home mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a href="meal-tracker.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-utensils mr-3"></i>
+                        Meal Tracker
+                    </a>
+                    <a href="ai-meal-planner.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-robot mr-3"></i>
+                        Meal Planner
+                    </a>
+                    <a href="ai-enhanced-workout-planner.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-robot mr-3"></i>
+                        Workout Planner
+                    </a>
+                    <a href="workout-plans.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-dumbbell mr-3"></i>
+                        Workout Plans
+                    </a>
+                    <a href="community.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-users mr-3"></i>
+                        Community
+                    </a>
+                    <a href="progress.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Progress
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="p-4 border-t border-gray-200">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full">
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-700">Sarah Johnson</p>
+                        <a href="#" class="text-xs text-gray-500 hover:text-gray-700">View profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm">
+                <div class="px-6 py-4 flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="p-2 text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="p-6">
+                <!-- Welcome section -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">Welcome back, Sarah!</h3>
+                            <p class="mt-1 text-sm text-gray-500">Here's your health overview for today</p>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            <span id="currentDate"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Current Weight</p>
+                                <p class="mt-1 text-2xl font-semibold text-gray-900">68.5 kg</p>
+                            </div>
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm text-gray-500">
+                            <i class="fas fa-arrow-down text-green-500 mr-1"></i>
+                            <span>1.2 kg down this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Daily Calories</p>
+                                <p class="mt-1 text-2xl font-semibold text-gray-900">1,240</p>
+                            </div>
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm text-gray-500">
+                            <span>300 remaining of 1,540 goal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Steps Today</p>
+                                <p class="mt-1 text-2xl font-semibold text-gray-900">5,842</p>
+                            </div>
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm text-gray-500">
+                            <span>58% of 10,000 step goal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Water Intake</p>
+                                <p class="mt-1 text-2xl font-semibold text-gray-900">1.8 L</p>
+                            </div>
+                            <div class="p-3 rounded-full bg-cyan-100 text-cyan-600">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm text-gray-500">
+                            <span>2 glasses remaining today</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress chart -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Weight Progress</h3>
+                        <select class="text-sm border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option>Last 7 days</option>
+                            <option selected>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+                    <div class="h-64">
+                        <svg width="100%" height="100%" viewBox="0 0 800 250" class="text-gray-200">
+                            <!-- X-axis -->
+                            <line x1="50" y1="200" x2="750" y2="200" stroke="currentColor" stroke-width="1" />
+                            
+                            <!-- Y-axis -->
+                            <line x1="50" y1="200" x2="50" y2="50" stroke="currentColor" stroke-width="1" />
+                            
+                            <!-- Grid lines -->
+                            <line x1="50" y1="170" x2="750" y2="170" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="140" x2="750" y2="140" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="110" x2="750" y2="110" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="80" x2="750" y2="80" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            <line x1="50" y1="50" x2="750" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" />
+                            
+                            <!-- Y-axis labels -->
+                            <text x="30" y="50" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">70</text>
+                            <text x="30" y="80" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">68</text>
+                            <text x="30" y="110" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">66</text>
+                            <text x="30" y="140" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">64</text>
+                            <text x="30" y="170" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">62</text>
+                            <text x="30" y="200" text-anchor="end" dominant-baseline="middle" class="text-xs fill-gray-500">60</text>
+                            
+                            <!-- Data points (mock data) -->
+                            <polyline points="100,170 150,160 200,155 250,150 300,145 350,140 400,135 450,130 500,125 550,120 600,115 650,110 700,105 750,100" 
+                                     fill="none" stroke="#2ecc71" stroke-width="3" stroke-linecap="round" />
+                            
+                            <!-- X-axis labels -->
+                            <text x="100" y="220" text-anchor="middle" class="text-xs fill-gray-500">1</text>
+                            <text x="200" y="220" text-anchor="middle" class="text-xs fill-gray-500">5</text>
+                            <text x="300" y="220" text-anchor="middle" class="text-xs fill-gray-500">10</text>
+                            <text x="400" y="220" text-anchor="middle" class="text-xs fill-gray-500">15</text>
+                            <text x="500" y="220" text-anchor="middle" class="text-xs fill-gray-500">20</text>
+                            <text x="600" y="220" text-anchor="middle" class="text-xs fill-gray-500">25</text>
+                            <text x="700" y="220" text-anchor="middle" class="text-xs fill-gray-500">30</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Recent activities -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Recent Meals</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full bg-green-100 text-green-600 mr-3">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Breakfast</p>
+                                    <p class="text-sm text-gray-500">Oatmeal with berries (320 cal)</p>
+                                    <p class="text-xs text-gray-400 mt-1">8:30 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full bg-blue-100 text-blue-600 mr-3">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Lunch</p>
+                                    <p class="text-sm text-gray-500">Grilled chicken salad (450 cal)</p>
+                                    <p class="text-xs text-gray-400 mt-1">12:45 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full bg-yellow-100 text-yellow-600 mr-3">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Snack</p>
+                                    <p class="text-sm text-gray-500">Greek yogurt with nuts (210 cal)</p>
+                                    <p class="text-xs text-gray-400 mt-1">3:15 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Recent Workouts</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full bg-purple-100 text-purple-600 mr-3">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Morning Run</p>
+                                    <p class="text-sm text-gray-500">5.2 km in 28 minutes (320 cal)</p>
+                                    <p class="text-xs text-gray-400 mt-1">7:00 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full bg-red-100 text-red-600 mr-3">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Strength Training</p>
+                                    <p class="text-sm text-gray-500">Upper body workout (240 cal)</p>
+                                    <p class="text-xs text-gray-400 mt-1">6:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+    </script>
+</body>
+</html>
