@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Subscription | FitnessFurge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .recommended {
+            border: 2px solid #2ecc71;
+            position: relative;
+        }
+        .recommended-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #2ecc71;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Upgrade to Premium</h1>
+            <p class="text-gray-600">Unlock all features after completing 5 workouts</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Monthly Plan -->
+            <div class="plan-card bg-white rounded-xl p-6 shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Monthly</h3>
+                <p class="text-gray-500 mb-4">Flexible monthly access</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold">$12</span>
+                    <span class="text-gray-500">/month</span>
+                </div>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Unlimited workouts</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Advanced analytics</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Meal plans</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+                    Select Plan
+                </button>
+            </div>
+
+            <!-- Yearly Plan (Recommended) -->
+            <div class="plan-card recommended bg-white rounded-xl p-6 shadow-md">
+                <div class="recommended-badge">Recommended</div>
+                <h3 class="text-xl font-semibold mb-2">Yearly</h3>
+                <p class="text-gray-500 mb-4">Best value - save 30%</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold">$100</span>
+                    <span class="text-gray-500">/year</span>
+                </div>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Everything in Monthly</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Priority support</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Exclusive content</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                    Select Plan
+                </button>
+            </div>
+
+            <!-- Lifetime Plan -->
+            <div class="plan-card bg-white rounded-xl p-6 shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Lifetime</h3>
+                <p class="text-gray-500 mb-4">One-time payment</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold">$600</span>
+                    <span class="text-gray-500">one-time</span>
+                </div>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Everything in Yearly</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Lifetime updates</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>VIP status</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+                    Select Plan
+                </button>
+            </div>
+        </div>
+
+        <!-- Currency Converter -->
+        <div class="mt-12 bg-white rounded-xl p-6 shadow-md max-w-md mx-auto">
+            <h3 class="text-xl font-semibold mb-4 text-center">Currency Converter</h3>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">From</label>
+                    <select class="w-full p-2 border border-gray-300 rounded">
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>GBP</option>
+                        <option>CAD</option>
+                        <option>AUD</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">To</label>
+                    <select class="w-full p-2 border border-gray-300 rounded">
+                        <option>EUR</option>
+                        <option>USD</option>
+                        <option>GBP</option>
+                        <option>CAD</option>
+                        <option>AUD</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+                <input type="number" class="w-full p-2 border border-gray-300 rounded" value="100">
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Converted Amount:</span>
+                    <span class="font-medium">€85.50</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500 mt-1">
+                    <span>Fee (0.5%):</span>
+                    <span>$0.50</span>
+                </div>
+            </div>
+            <button class="w-full mt-4 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                Convert Currency
+            </button>
+        </div>
+
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>Cancel anytime. 30-day money-back guarantee.</p>
+        </div>
+    </div>
+
+    <script src="workout-counter.js"></script>
+    <script src="review-system.js"></script>
+    <script>
+        // Initialize elements
+        const fromCurrencySelect = document.getElementById('fromCurrency');
+        const toCurrencySelect = document.getElementById('toCurrency');
+        const amountInput = document.getElementById('amount');
+        const convertBtn = document.getElementById('convertBtn');
+        const convertedAmount = document.getElementById('convertedAmount');
+        const conversionFee = document.getElementById('conversionFee');
+
+        // Handle currency conversion
+        convertBtn.addEventListener('click', () => {
+            const amount = parseFloat(amountInput.value) || 0;
+            const result = convertCurrency(
+                amount,
+                fromCurrencySelect.value,
+                toCurrencySelect.value
+            );
+            
+            convertedAmount.textContent = result.amount.toFixed(2);
+            conversionFee.textContent = result.fee.toFixed(2);
+        });
+
+        // Handle plan selection with points redemption
+        document.querySelectorAll('.select-plan').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const planCard = e.target.closest('.plan-card');
+                const plan = planCard.querySelector('h3').textContent;
+                const price = planCard.querySelector('.price').textContent;
+                const pointsNeeded = parseInt(planCard.querySelector('.points-needed').textContent);
+                
+                if (confirm(`Use ${pointsNeeded} points for ${plan} instead of paying ${price}?`)) {
+                    if (reviewSystem.redeemPoints(pointsNeeded)) {
+                        alert(`Success! ${pointsNeeded} points redeemed for ${plan}.`);
+                        document.getElementById('userPoints').textContent = reviewSystem.userPoints;
+                    } else {
+                        alert(`You need ${pointsNeeded - reviewSystem.userPoints} more points for this plan.`);
+                    }
+                } else {
+                    // Proceed with regular payment
+                    alert(`Initiating ${plan} payment for ${price}`);
+                }
+            });
+        });
+
+        // Show workout counter status
+        document.addEventListener('DOMContentLoaded', () => {
+            const workoutStatus = document.getElementById('workoutStatus');
+            if (workoutStatus) {
+                workoutStatus.textContent = `You've completed ${localStorage.getItem('workoutCount') || 0}/5 workouts`;
+            }
+            
+            // Initialize points display
+            document.getElementById('userPoints').textContent = reviewSystem.userPoints;
+        });
+    </script>
+</body>
+</html>
